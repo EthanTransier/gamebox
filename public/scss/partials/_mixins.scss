@@ -1,0 +1,17 @@
+$primary: #01424c;
+$secondary: white;
+$tertiary: #f2c83b;
+
+$red: #ff1919;
+//Flex Centering Mixin
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+// Font Type Mixin
+@mixin font($font-size) {
+  font-family: $font-size;
+}

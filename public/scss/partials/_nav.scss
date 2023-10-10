@@ -1,0 +1,33 @@
+nav {
+  margin-top: 0;
+  width: 100vw;
+  background-color: rgba(0, 181, 209, 1);
+  height: 13vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  h1 {
+    color: white;
+    font-family: thin;
+    margin-left: 2rem;
+    font-size: 1.85rem;
+  }
+  section {
+    display: flex;
+    justify-content: space-evenly;
+    width: 22%;
+    color: white;
+    align-items: center;
+    font-family: thin;
+    font-size: 1.35rem;
+    margin-right: 2rem;
+    div {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

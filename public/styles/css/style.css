@@ -1,0 +1,122 @@
+html,
+body,
+div,
+span,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+a,
+address,
+code,
+del,
+em,
+img,
+ins,
+strike,
+strong,
+sub,
+sup,
+var,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+canvas,
+footer,
+header,
+menu,
+nav,
+section,
+summary {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: regular;
+  src: url(../../montserrat/static/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: bold;
+  src: url(../../montserrat/static/Montserrat-Bold.ttf);
+}
+@font-face {
+  font-family: light;
+  src: url(../..//montserrat/static/Montserrat-Light.ttf);
+}
+@font-face {
+  font-family: thin;
+  src: url(../..//montserrat/static/Montserrat-Thin.ttf);
+}
+@font-face {
+  font-family: extrathin;
+  src: url(../..//montserrat/static/Montserrat-Thin.ttf);
+}
+main {
+  background: rgb(0, 51, 60);
+  background: linear-gradient(0deg, rgb(0, 51, 60) 0%, rgb(1, 66, 76) 50%, rgb(0, 181, 209) 100%);
+}
+
+nav {
+  margin-top: 0;
+  width: 100vw;
+  background-color: rgb(0, 181, 209);
+  height: 13vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+nav h1 {
+  color: white;
+  font-family: thin;
+  margin-left: 2rem;
+  font-size: 1.85rem;
+}
+nav section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 22%;
+  color: white;
+  align-items: center;
+  font-family: thin;
+  font-size: 1.35rem;
+  margin-right: 2rem;
+}
+nav section div {
+  cursor: pointer;
+}
+nav section div:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=style.css.map */
