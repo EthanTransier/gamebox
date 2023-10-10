@@ -3,7 +3,7 @@ require('dotenv').config();
 require('./db/connect');
 const app = express();
 //ur app.js should look small and clean
-const life = require('./routes/life');
+const blackjack = require('./routes/blackjack');
 const auth = require('./routes/auth');
 const connectDB = require('./db/connect');
 
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 //parse json data
 app.use(express.json());
 //routes/router
-app.use('/api/life', life);//creating seperate routers for seperate purposes
+app.use('/api/blackjack', blackjack);//creating seperate routers for seperate purposes
 app.use('/login', auth);
 
 const initServer = async () => {
