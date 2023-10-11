@@ -3,7 +3,7 @@ require('dotenv').config();
 require('./db/connect');
 const app = express();
 //ur app.js should look small and clean
-const blackjack = require('./routes/blackjack');
+const blackjack = require('./routes/user');
 const auth = require('./routes/auth');
 const connectDB = require('./db/connect');
 
