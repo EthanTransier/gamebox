@@ -1,0 +1,39 @@
+.board {
+  font-family: mont-regular;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    64.68% 64.68% at 50% 50%,
+    #007805 0%,
+    #002f02 100%
+  );
+  @include flexCenter(column);
+  color: white;
+  .goHome {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    color: white;
+    font-family: mont-light;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  .result2 {
+    .card {
+      width: 150px;
+      height: auto;
+    }
+  }
+  .result {
+    .card {
+      width: 150px;
+      height: auto;
+    }
+  }
+  .buttons {
+    button {
+      width: 100px;
+      aspect-ratio: 1/1;
+    }
+  }
+}

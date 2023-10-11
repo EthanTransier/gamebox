@@ -1,68 +1,28 @@
-main {
-  background: rgb(0, 51, 60);
-  background: linear-gradient(
-    0deg,
-    rgba(1, 66, 76, 1) 1%,
-    rgba(0, 181, 209, 1) 100%
-  );
-  width: 100vw;
-  height: 87vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+h1 {
+  font-family: jq-regular;
+  color: black;
+  font-size: 200px;
+  font-weight: normal;
+  .whiteText {
+    color: white;
+  }
 }
-.login {
-  width: 550px;
-  aspect-ratio: 1/1;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 2rem;
-    // padding-bottom: 10rem;
-    h3 {
-      color: black;
-      font-family: regular;
-      text-align: center;
-      font-weight: normal;
-      font-size: 1.65rem;
-      margin-top: 0.75rem;
-    }
-    div {
-      display: flex;
-      flex-direction: column;
-      width: 75%;
-      margin-top: 1rem;
-      font-family: regular;
-      div {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        input {
-          border-width: 0px;
-          border-bottom: 1px solid rgb(0, 190, 220);
-          width: 100%;
-          font-size: 1.25rem;
-          &:focus {
-            border-width: 0px;
-            outline: 0;
-            border-bottom: 2px solid rgb(0, 190, 220);
-          }
-        }
-        label {
-          font-size: 1.25rem;
-        }
-      }
+.links {
+  position: absolute;
+  color: #c89963;
+  font-family: mont-bold;
+  a {
+    color: #c89963;
+    text-decoration: none;
+    font-size: 1.5rem;
+    &:hover {
+      text-decoration: underline;
     }
   }
-  button {
-    width: 75%;
-    margin-bottom: 2rem;
-  }
+  margin-top: 25vh;
+  margin-left: -18vw;
+  width: 30vw;
+  height: auto;
+  @include flexCenter(row);
+  gap: 20px;
 }

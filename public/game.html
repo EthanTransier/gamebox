@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/css/style.css">
+</head>
+<body>
+    <section class="board">
+        <a href="./index.html" class="goHome"><- Back to Home (Ongoing game will be counted as a loss)</a>
+        <div class="result2" id="result2"></div>
+        <div class="result" id="result"></div>
+        <section class="buttons">
+            <button onclick="deal()">Deal</button>
+            <button onclick="hit()">Hit</button>
+            <button onclick="stand()">Stand</button>
+        </section>
+        <div class="winner" id="winner"></div>
+    </section>
+    <script src="./blackjack-script.js"></script>
+</body>
+</html>
