@@ -1,7 +1,7 @@
 h1 {
   font-family: jq-regular;
   color: black;
-  font-size: 200px;
+  font-size: clamp(4.375rem, 0.053rem + 13.83vw, 12.5rem);
   font-weight: normal;
   .whiteText {
     color: white;
@@ -14,14 +14,14 @@ h1 {
   a {
     color: #c89963;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 0.734rem + 0.851vw, 1.5rem);
     &:hover {
       text-decoration: underline;
     }
   }
-  margin-top: 25vh;
-  margin-left: -18vw;
-  width: 30vw;
+  margin-top: clamp(4.4rem, -0.174rem + 14.638vw, 13rem);
+  margin-right: clamp(-8rem, -20.234rem + 39.149vw, 15rem);
+  width: auto;
   height: auto;
   @include flexCenter(row);
   gap: 20px;
