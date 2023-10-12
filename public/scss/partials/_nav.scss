@@ -1,32 +1,9 @@
-nav {
-  margin-top: 0;
-  width: 100vw;
-  height: 13vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  h1 {
-    color: white;
-    font-family: thin;
-    margin-left: 2rem;
-    font-size: 1.85rem;
-  }
-  section {
-    display: flex;
-    justify-content: space-evenly;
-    width: 22%;
-    color: white;
-    align-items: center;
-    font-family: thin;
-    font-size: 1.35rem;
-    margin-right: 2rem;
-    div {
-      cursor: pointer;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
+.goHome {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  color: white;
+  font-family: mont-light;
+  text-decoration: none;
+  font-size: 1rem;
 }

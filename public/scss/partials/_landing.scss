@@ -1,28 +1,48 @@
 h1 {
   font-family: jq-regular;
   color: black;
-  font-size: clamp(4.375rem, 0.053rem + 13.83vw, 12.5rem);
+  font-size: clamp(4.3rem, -0.2rem + 14.4vw, 16rem);
   font-weight: normal;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   .whiteText {
     color: white;
   }
-}
-.links {
-  position: absolute;
-  color: #c89963;
-  font-family: mont-bold;
-  a {
+  .links {
+    // position: absolute;
     color: #c89963;
-    text-decoration: none;
+    font-family: mont-bold;
+    font-weight: normal;
+    // span {
+    //   height: 1rem;
+    // }
     font-size: clamp(1rem, 0.734rem + 0.851vw, 1.5rem);
-    &:hover {
-      text-decoration: underline;
+    margin-left: 4rem;
+    a {
+      color: #c89963;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    // margin-top: clamp(4.4rem, -0.174rem + 14.638vw, 13rem);
+    // margin-right: clamp(-8rem, -20.234rem + 39.149vw, 15rem);
+    width: fit-content;
+    height: 100%;
+    @include flexCenter(row);
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: clamp(6rem, 3rem + 16vw, 8rem);
+    .links {
+      width: 100vw;
+      text-align: center;
+      margin-left: 0;
+      font-size: clamp(0.8rem, 0.05rem + 4vw, 1.3rem);
     }
   }
-  margin-top: clamp(4.4rem, -0.174rem + 14.638vw, 13rem);
-  margin-right: clamp(-8rem, -20.234rem + 39.149vw, 15rem);
-  width: auto;
-  height: auto;
-  @include flexCenter(row);
-  gap: 20px;
 }

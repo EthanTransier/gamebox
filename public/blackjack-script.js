@@ -60,14 +60,71 @@ async function hit(){
     result.innerHTML = `User's Hand: <img src="./images/cards/PNG-cards-1.3/${userCards.join('.png" alt="face down card" class="card"><img src="./images/cards/PNG-cards-1.3/')}.png" alt="face down card" class="card">`
     console.log(userCards)
 }
-// hit()
 
-async function dealerHit(){
-    
+// function to hit the dealer, once the user stands
+function dealerHit(){
+    let dealerFinal = 0;
+    for(let i = 0; i < dealersCards.length; i++){
+        let value = Number(dealersCards[i].split('-')[1])
+        if(value == 1){
+            dealerAce=true;
+            value = 11
+        }else if(value >= 10){
+            value = 10
+        }
+        dealerFinal+=value
+        
+    }
+    // if their is an ace and the final is greater than 21, it will make the ace worth 1 point
+    if(dealerFinal >21 && dealerAce){
+        dealerFinal -= 10;
+    }
+
+
+    // the dealer will hit until the total is 17 or higher, and then after that the game is over, and the winner is calculated
+    if(dealerFinal < 17){
+        console.log('adding card')
+        for(let i = 0; i < 1; i){
+            let index = getRandomCard();
+            if(!userCards.includes(cards[index]) && !dealersCards.includes(cards[index])){
+                dealersCards.push(cards[index])
+                i++
+            }
+        }
+        // prints the cards to the dealer
+        result2.innerHTML = `Dealer's Hand: <img src="./images/cards/PNG-cards-1.3/${dealersCards.join('.png" alt="face down card" class="card"><img src="./images/cards/PNG-cards-1.3/')}.png" alt="face down card" class="card">`
+        dealerHit(dealerFinal)
+    }
+}
+
+// function that flips the turned over card
+function flip(){
+    $('#flipBoxInner').addClass('flipped')
 }
 
 // game end function, tallies up the numbers and decides a winner
-async function stand(){
+function stand(){
+    // sets the dealer's hand to the flipped over card, so that it can have the animation of flipping over, and so that you can't use inspect element to see what the dealer has
+    result2.innerHTML = `Dealer's Hand: <img src="./images/cards/PNG-cards-1.3/${dealersCards[0]}.png" alt="face down card" class="card"><div class="flip-box">
+            <div class="flip-box-inner" id="flipBoxInner">
+                <div class="flip-box-front">
+                    <img src="./images/facedown.png" alt="">
+                </div>
+                <div class="flip-box-back">
+                    <img src="./images/cards/PNG-cards-1.3/${dealersCards[1]}.png" alt="face down card" class="card">
+                </div>
+            </div>
+        </div>`
+    console.log($('#flipBoxInner'))
+    // flips the card a millisecond later, so that the animation plays correctly
+    setTimeout(flip, 1)
+
+    // function on set timeout so that it plays after the card finished its animation of flipping over
+    setTimeout(function(){
+        dealerHit()
+        getResults(dealerFinal, userFinal)
+    }, 801)
+    
     let userAce = false;
     let userFinal = 0;
 
@@ -88,7 +145,7 @@ async function stand(){
         userFinal -= 10;
     }
     // prints the user's score to the page
-    result.textContent = `User's Score: ${userFinal}`;
+    // result.innerHTML+= `User's Score: ${userFinal}`;
     console.log(userFinal)
 
     // Dealer section
@@ -111,10 +168,14 @@ async function stand(){
     if(dealerFinal >21 && dealerAce){
         dealerFinal -= 10;
     }
-    // prints the dealer's score to the page
-    result2.textContent = `Dealer's Score: ${dealerFinal}`;
-    console.log(dealerFinal)
     
+    
+    
+
+    
+}
+
+function getResults(dealerFinal, userFinal){
     var gameResult = "";
 
     // Checks the scores to see who wins the game
@@ -131,7 +192,6 @@ async function stand(){
             gameResult = 'dealer wins'
         }
     }
-
     // prints the winner result to the page
     winner.textContent = gameResult
 }

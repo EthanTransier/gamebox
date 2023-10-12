@@ -19,6 +19,7 @@
     font-size: 1rem;
   }
   .result2 {
+    @include flexCenter(row);
     .card {
       width: 150px;
       height: auto;

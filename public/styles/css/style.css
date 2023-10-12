@@ -86,37 +86,14 @@ body {
   font-family: jq-regular;
   src: url(../../jqkas/JqkasWild-w1YD6.ttf);
 }
-nav {
-  margin-top: 0;
-  width: 100vw;
-  height: 13vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-}
-nav h1 {
+.goHome {
+  position: absolute;
+  top: 2px;
+  left: 5px;
   color: white;
-  font-family: thin;
-  margin-left: 2rem;
-  font-size: 1.85rem;
-}
-nav section {
-  display: flex;
-  justify-content: space-evenly;
-  width: 22%;
-  color: white;
-  align-items: center;
-  font-family: thin;
-  font-size: 1.35rem;
-  margin-right: 2rem;
-}
-nav section div {
-  cursor: pointer;
-}
-nav section div:hover {
-  text-decoration: underline;
+  font-family: mont-light;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
 .board {
@@ -138,6 +115,12 @@ nav section div:hover {
   font-family: mont-light;
   text-decoration: none;
   font-size: 1rem;
+}
+.board .result2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 .board .result2 .card {
   width: 150px;
@@ -195,32 +178,91 @@ body .logIn div input:focus {
 h1 {
   font-family: jq-regular;
   color: black;
-  font-size: clamp(4.375rem, 0.053rem + 13.83vw, 12.5rem);
+  font-size: clamp(4.3rem, -0.2rem + 14.4vw, 16rem);
   font-weight: normal;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 h1 .whiteText {
   color: white;
 }
-
-.links {
-  position: absolute;
+h1 .links {
   color: #c89963;
   font-family: mont-bold;
-  margin-top: clamp(4.4rem, -0.174rem + 14.638vw, 13rem);
-  margin-right: clamp(-8rem, -20.234rem + 39.149vw, 15rem);
-  width: auto;
-  height: auto;
+  font-weight: normal;
+  font-size: clamp(1rem, 0.734rem + 0.851vw, 1.5rem);
+  margin-left: 4rem;
+  width: fit-content;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   gap: 20px;
 }
-.links a {
+h1 .links a {
   color: #c89963;
   text-decoration: none;
-  font-size: clamp(1rem, 0.734rem + 0.851vw, 1.5rem);
 }
-.links a:hover {
+h1 .links a:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: clamp(6rem, 3rem + 16vw, 8rem);
+  }
+  h1 .links {
+    width: 100vw;
+    text-align: center;
+    margin-left: 0;
+    font-size: clamp(0.8rem, 0.05rem + 4vw, 1.3rem);
+  }
+}
+.flip-box {
+  background-color: transparent;
+  width: 150px;
+  height: 218.5px;
+  perspective: 1000px;
+  transform: rotateY(0deg);
+}
+
+#flipBoxInner.flipped {
+  transform: rotateY(180deg);
+}
+
+#flipBoxInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
+
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-box-front img,
+.flip-box-back img {
+  width: 150px;
+  height: auto;
+}
+
+.flip-box-front {
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+}
+
+.flip-box-back {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  transform: rotateY(180deg);
 }/*# sourceMappingURL=style.css.map */

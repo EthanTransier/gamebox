@@ -1,0 +1,49 @@
+.flip-box {
+  background-color: transparent;
+  width: 150px;
+  height: 218.5px;
+  //   border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  transform: rotateY(0deg);
+}
+#flipBoxInner.flipped {
+  transform: rotateY(180deg);
+  //   transition: transform 0.8s;
+}
+#flipBoxInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
+
+// .flip-box:hover .flip-box-inner {
+//   transform: rotateY(180deg);
+// }
+
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  img {
+    width: 150px;
+    height: auto;
+  }
+}
+
+.flip-box-front {
+  background-color: #00000000;
+  color: black;
+}
+
+.flip-box-back {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  transform: rotateY(180deg);
+}
