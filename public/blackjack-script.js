@@ -63,6 +63,7 @@ async function hit(){
 
 // function to hit the dealer, once the user stands
 function dealerHit(){
+    var dealerAce = false;
     let dealerFinal = 0;
     for(let i = 0; i < dealersCards.length; i++){
         let value = Number(dealersCards[i].split('-')[1])
@@ -193,6 +194,7 @@ function getResults(dealerFinal, userFinal){
         }
     }
     // prints the winner result to the page
+    console.log(dealerFinal + " " + userFinal)
     winner.textContent = gameResult
 }
 
