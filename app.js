@@ -1,34 +1,53 @@
 const express = require('express');
-require('dotenv').config();
-require('./db/connect');
+const session = require ('express-session');
+const flash = require('connect-flash');
+const morgan = require('morgan');
+const passport = require('passport');
+require('./config/passport')(passport)
+require('dotenv').config()
+const router = express.Router();
 const app = express();
-//ur app.js should look small and clean
-const blackjack = require('./routes/user');
-const auth = require('./routes/auth');
-const connectDB = require('./db/connect');
+const mongoose = require('mongoose');
+const expressEJSLayout = require('express-ejs-layouts')
 
 
-//Static assets
-app.use(express.static('./public'));
-//parse form data
-app.use(express.urlencoded({ extended: false }));
-//parse json data
-app.use(express.json());
-//routes/router
-app.use('/api/blackjack', blackjack);//creating seperate routers for seperate purposes
-app.use('/login', auth);
+try{
+    mongoose.connect(process.env.MONGO_URI, {useNewUrlParser:true,useUnifiedTopology:true})
+    .then(()=>{console.log(`connected on Port: ${process.env.PORT}`)})
+    .catch((err)=>{console.log(err)})
+} catch(error){
+    
+}
 
-const initServer = async () => {
-  //first thing we want it to do is connect to the server
-  try {
-    await connectDB(process.env.MONGO_URI);
-    app.listen(5000, () => {
-      //server listen
-      console.log('Server is listening on Port 5000');
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
 
-initServer();
+
+app.use(morgan('tiny'))
+
+app.set('view engine', 'ejs')
+app.use(express.urlencoded({extended: false}))
+
+app.use(express.static(__dirname + '/public'));
+
+
+
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUnitialized: true
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('sucess message');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next()
+})
+
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
+
+app.listen(process.env.PORT || 3000)
