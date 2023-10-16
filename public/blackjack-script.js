@@ -17,8 +17,16 @@ function getRandomCard(){
 var userCards = [];
 var dealersCards = [];
 
+var usersEmail;
+
 // starts the game, deals cards to the user and then the dealer
-async function deal() {
+async function deal(userEmail) {
+    await fetch(`/users/addGame/${userEmail}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'}
+    })
+    usersEmail = userEmail
+    console.log(userEmail)
     userCards = []
     // gets two random cards, checks if they have been used already, and then adds them to the user's deck
     for(let i = 0; i < 2; i){
@@ -176,7 +184,7 @@ function stand(){
     
 }
 
-function getResults(dealerFinal, userFinal){
+async function getResults(dealerFinal, userFinal){
     var gameResult = "";
 
     // Checks the scores to see who wins the game
@@ -184,11 +192,19 @@ function getResults(dealerFinal, userFinal){
         gameResult = 'tie'
     }else if(dealerFinal > 21 && userFinal <= 21){
         gameResult = "user wins"
+        await fetch(`/users/winGame/${usersEmail}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'}
+        })
     }else if(userFinal > 21 && dealerFinal <= 21){
         gameResult = 'dealer wins'
     }else if(userFinal <= 21 && dealerFinal <= 21){
         if(userFinal > dealerFinal){
             gameResult = 'user wins'
+            await fetch(`/users/winGame/${usersEmail}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json'}
+            })
         }else{
             gameResult = 'dealer wins'
         }

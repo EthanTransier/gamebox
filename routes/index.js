@@ -11,8 +11,13 @@ router.get('/', function (req, res){
 // })
 
 router.get('/dashboard', ensureAuthenticated, (req, res)=>{
-    console.log("this is the user "+ req.user)
     res.render('pages/dashboard', {
+        user:req.user
+    })
+})
+
+router.get('/game', ensureAuthenticated, (req, res)=>{
+    res.render('pages/game', {
         user:req.user
     })
 })

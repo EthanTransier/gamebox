@@ -96,4 +96,45 @@ router.get('/logout', (req, res)=>{
     res.redirect('/')
 })
 
+router.post('/addGame/:email', async (req, res) => {
+    const {email} = req.params; // Assuming 'email' is a property in the request body
+
+    try {
+        const currentUser = await User.findOne({ email: email });
+
+        if (currentUser) {
+            // Assuming 'games_played' is a property of the 'User' model
+            const newScore = Number(currentUser.games_played) + 1;
+            // console.log(`The new score is ${newScore}`)
+            await User.findOneAndUpdate({email: email}, {games_played: newScore})
+            res.json(newScore);
+        } else {
+            res.status(404).json({ error: 'User not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+router.post('/winGame/:email', async (req, res) => {
+    const {email} = req.params; // Assuming 'email' is a property in the request body
+
+    try {
+        const currentUser = await User.findOne({ email: email });
+
+        if (currentUser) {
+            // Assuming 'games_played' is a property of the 'User' model
+            const newScore = Number(currentUser.games_won) + 1;
+            // console.log(`The new score is ${newScore}`)
+            await User.findOneAndUpdate({email: email}, {games_won: newScore})
+            res.json(newScore);
+        } else {
+            res.status(404).json({ error: 'User not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+// User.findOneAndUpdate({email: email, games_played: currentUser.games_played+=1})
 module.exports = router;

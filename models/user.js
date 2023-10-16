@@ -20,6 +20,16 @@ const UserSchema  = new mongoose.Schema({
     date :{
         type : Date,
         default : Date.now
+    },
+    games_played :{
+        type : Number,
+        required : true,
+        default : 0
+    },
+    games_won :{
+        type : Number,
+        required : true,
+        default : 0
     }
 },{collection : 'Users'});
 const User= mongoose.model('User',UserSchema);

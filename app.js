@@ -28,7 +28,15 @@ app.use(express.urlencoded({extended: false}))
 
 app.use(express.static(__dirname + '/public'));
 
-
+app.use((req, res, next) => {
+  const url = req.originalUrl;
+  if (url.endsWith('.js')) {
+    res.setHeader('Content-Type', 'text/javascript');
+  } else if (url.endsWith('.css')) {
+    res.setHeader('Content-Type', 'text/css');
+  }
+  next();
+});
 
 
 app.use(session({

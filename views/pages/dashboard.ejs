@@ -1,1 +1,38 @@
-<h1>Welcome back <%= user.first_name %></h1>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/css/style.css">
+</head>
+
+<body>
+    <!-- <a href="/" class="goHome"><- Back to Home</a> -->
+    <main class="dashboard">
+        <h3>Welcome back <%= user.first_name %></h3>
+        <section>
+            <div>
+                <h4>Account Details</h4>
+                <ul>
+                    <li>Games Played: <%= user.games_played %>
+                    </li>
+                    <li>Games Won: <%= user.games_won %>
+                    </li>
+                    <% var winPercentage=(Number(user.games_won) / Number(user.games_played) * 100).toFixed(2) %>
+                    <% if(isNaN(winPercentage)){
+                        winPercentage=0 
+                    } %>
+                        <% console.log(winPercentage) %>
+                            <li>Win Percentage: <%= winPercentage %>%</li>
+                </ul>
+            </div>
+        </section>
+        <a href="/game">Play Game</a>
+    </main>
+</body>
+
+</html>
