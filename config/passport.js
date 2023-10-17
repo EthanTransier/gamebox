@@ -40,11 +40,11 @@ module.exports = function(passport){
     });
 
     passport.deserializeUser(function(id, done) {
-        User.findById(id).then((err, user)=>{
-            done(user, err)
-        }).catch((err)=>{
-            done(err, null)
-        })
+        User.findById(id).then((user, err)=>{
+            console.log(err)
+            if(err) return done(err)
+            done(err, user)
+        }).catch( (err)=>{console.log(err)})
     })
 
 }

@@ -6,14 +6,12 @@ const User = require('../models/user');
 
 // if they go to users/login, it will take them to the login page
 router.get('/login', (req, res)=>{
-    const cssPath = '../styles/css/style.css';
-    res.render('pages/login', { cssPath });
+    res.render('pages/login');
 })
 
 // if they go to users/register, it will take them to the register page
 router.get('/register', (req, res)=>{
-    const cssPath = '../styles/css/style.css';
-    res.render('pages/register', { cssPath })
+    res.render('pages/register')
 })
 
 // This will create the user, using the data from the register page
@@ -49,17 +47,19 @@ router.post('/register', (req, res)=>{
         })
     } else {
         // will try to find a user that uses the email that the user put into the register page, if their are any uses of it it means that the email has already been used
-        User.findOne({email: email}).then((err, user)=>{
+        User.findOne({email: email}).then((user, err)=>{
             if(user){
                 // if it finds the user, it errors and says that the email has already been registered, so the user can't create an account
                 errors.push({msg: "This email has aleady been registered"})
+                console.log(errors)
                 res.render('pages/register', {
                     errors: errors,
                     first_name: first_name,
                     last_name: last_name,
                     email: email,
-                    password: password
-                }, { cssPath })
+                    password: password,
+                    password2 : password2
+                })
             } else {
                 // Creates the new user object using the user schema
                 const newUser = new User({
