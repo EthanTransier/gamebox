@@ -105,6 +105,8 @@ function dealerHit(){
         // prints the cards to the dealer
         result2.innerHTML = `Dealer's Hand: <img src="./images/cards/PNG-cards-1.3/${dealersCards.join('.png" alt="face down card" class="card"><img src="./images/cards/PNG-cards-1.3/')}.png" alt="face down card" class="card">`
         dealerHit(dealerFinal)
+    }else {
+        getResults()
     }
 }
 
@@ -133,9 +135,13 @@ function stand(){
     // function on set timeout so that it plays after the card finished its animation of flipping over
     setTimeout(function(){
         dealerHit()
-        getResults(dealerFinal, userFinal)
+        
     }, 801)
+
     
+}
+
+async function getResults(){
     let userAce = false;
     let userFinal = 0;
 
@@ -155,9 +161,6 @@ function stand(){
     if(userFinal >21 && userAce){
         userFinal -= 10;
     }
-    // prints the user's score to the page
-    // result.innerHTML+= `User's Score: ${userFinal}`;
-    console.log(userFinal)
 
     // Dealer section
     let dealerAce = false;
@@ -180,13 +183,7 @@ function stand(){
         dealerFinal -= 10;
     }
     
-    
-    
 
-    
-}
-
-async function getResults(dealerFinal, userFinal){
     var gameResult = "";
 
     // Checks the scores to see who wins the game
