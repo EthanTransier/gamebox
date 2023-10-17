@@ -30,6 +30,16 @@ const UserSchema  = new mongoose.Schema({
         type : Number,
         required : true,
         default : 0
+    },
+    win_streak :{
+        type : Number,
+        required : true,
+        default : 0
+    },
+    highest_win_streak :{
+        type : Number,
+        required : true,
+        default : 0
     }
 },{collection : 'Users'});
 const User= mongoose.model('User',UserSchema);

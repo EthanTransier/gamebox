@@ -25,13 +25,16 @@
                         winPercentage=0 
                     } %>
                         <% console.log(winPercentage) %>
-                            <li>Win Percentage: <%= winPercentage %>%</li>
+                    <li>Win Percentage: <%= winPercentage %>%</li>
+                    <li>Current Win Streak: <%= user.win_streak %></li>
+                    <li>Highest Win Streak: <%= user.highest_win_streak%></li>
                 </ul>
                 <a href="/users/logout">Logout</a>
             </div>
         </section>
         <a href="/game">Play Game</a>
     </main>
+    <script src="./dashboard-script.js"></script>
 </body>
 
 </html>

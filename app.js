@@ -25,6 +25,7 @@ app.use(morgan('tiny'))
 app.set('view engine', 'ejs')
 // Body parser
 app.use(express.urlencoded({extended: false}))
+app.use(express.json())
 // uses the public foler
 app.use(express.static(__dirname + '/public'));
 // fixes MIME type issues

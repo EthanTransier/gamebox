@@ -146,8 +146,15 @@ router.post('/winGame/:email', async (req, res) => {
         if (currentUser) {
             // gets the current user's games won and adds one to that number
             const newScore = Number(currentUser.games_won) + 1;
+            const newWinStreak = Number(currentUser.win_streak) + 1
             // updates the current user that has the email from the parameters, and makes their games won the new score defined above
-            await User.findOneAndUpdate({email: email}, {games_won: newScore})
+            if(newWinStreak > Number(currentUser.highest_win_streak)){
+                var newHighWin = newWinStreak
+            }else{
+                var newHighWin = Number(currentUser.highest_win_streak)
+            }
+
+            await User.findOneAndUpdate({email: email}, {games_won: newScore, win_streak: newWinStreak, highest_win_streak: newHighWin})
             res.json(newScore);
         } else {
             // If the user cannot be found
@@ -158,5 +165,36 @@ router.post('/winGame/:email', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+
+// adds a game won to the user using their email passed through the parameters
+router.post('/endWinStreak/:email', async (req, res) => {
+    // Finds the current user using the email
+    const {email} = req.params;
+    
+    try {
+        // gets the current user's games won and adds one to that number
+        const currentUser = await User.findOne({ email: email });
+        // if its able to find the current user, it adds one to their games won
+        if (currentUser) {
+            // gets the current user's games won and adds one to that number
+            const newScore = Number(currentUser.games_won) + 1;
+            // updates the current user that has the email from the parameters, and makes their games won the new score defined above
+            await User.findOneAndUpdate({email: email}, {win_streak: 0})
+            res.json(newScore);
+        } else {
+            // If the user cannot be found
+            res.status(404).json({ error: 'User not found' });
+        }
+    } catch (error) {
+        // server issue with the pathway
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+router.get('/getUsers', async (req, res) =>{
+    const answers = await User.find({})
+    res.json(answers)
+})
+
 
 module.exports = router;

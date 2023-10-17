@@ -197,6 +197,10 @@ async function getResults(){
         })
     }else if(userFinal > 21 && dealerFinal <= 21){
         gameResult = 'dealer wins'
+        await fetch(`/users/endWinStreak/${usersEmail}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'}
+        })
     }else if(userFinal <= 21 && dealerFinal <= 21){
         if(userFinal > dealerFinal){
             gameResult = 'user wins'
@@ -206,6 +210,10 @@ async function getResults(){
             })
         }else{
             gameResult = 'dealer wins'
+            await fetch(`/users/endWinStreak/${usersEmail}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json'}
+            })
         }
     }
     // prints the winner result to the page
