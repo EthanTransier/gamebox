@@ -2,7 +2,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
-
+// Local strategy for encrypting and decrypting passwords when loging in the user
 module.exports = function(passport){
     console.log('running passport')
     passport.use(
@@ -33,6 +33,8 @@ module.exports = function(passport){
         })
     )
 
+    // user is stored in the req.user, so it knows that you are logged in at the moment
+    // used to create session based programs
     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });

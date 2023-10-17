@@ -1,3 +1,5 @@
+
+// ensures that the user has authenticated
 const ensureAuthenticated = (req, res, next)=>{
     if(req.isAuthenticated()){
         next()

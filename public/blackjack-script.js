@@ -58,15 +58,17 @@ async function deal(userEmail) {
 // deal();
 
 async function hit(){
-     for(let i = 0; i < 1; i){
-        let index = getRandomCard();
-        if(!userCards.includes(cards[index]) && !dealersCards.includes(cards[index])){
-            userCards.push(cards[index])
-            i++
+    if(userCards.length < 5){
+        for(let i = 0; i < 1; i){
+            let index = getRandomCard();
+            if(!userCards.includes(cards[index]) && !dealersCards.includes(cards[index])){
+                userCards.push(cards[index])
+                i++
+            }
         }
+        result.innerHTML = `User's Hand: <img src="./images/cards/PNG-cards-1.3/${userCards.join('.png" alt="face down card" class="card"><img src="./images/cards/PNG-cards-1.3/')}.png" alt="face down card" class="card">`
+        console.log(userCards)
     }
-    result.innerHTML = `User's Hand: <img src="./images/cards/PNG-cards-1.3/${userCards.join('.png" alt="face down card" class="card"><img src="./images/cards/PNG-cards-1.3/')}.png" alt="face down card" class="card">`
-    console.log(userCards)
 }
 
 // function to hit the dealer, once the user stands
