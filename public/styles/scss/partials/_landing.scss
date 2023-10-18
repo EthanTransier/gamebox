@@ -1,39 +1,18 @@
+.wel{
+  display: block;
+}
 h1 {
   font-family: jq-regular;
   color: black;
-  font-size: clamp(4.3rem, -0.2rem + 14.4vw, 16rem);
+  font-size: 10rem;
   font-weight: normal;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  
+  
   .whiteText {
     color: white;
+    font-size: 4rem;
   }
-  .links {
-    // position: absolute;
-    color: #E79F0D;
-    font-family: mont-bold;
-    font-weight: normal;
-    // span {
-    //   height: 1rem;
-    // }
-    font-size: clamp(1rem, 0.734rem + 0.851vw, 1.5rem);
-    margin-left: 4rem;
-    a {
-      color: #E79F0D;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    // margin-top: clamp(4.4rem, -0.174rem + 14.638vw, 13rem);
-    // margin-right: clamp(-8rem, -20.234rem + 39.149vw, 15rem);
-    width: fit-content;
-    height: 100%;
-    @include flexCenter(row);
-    gap: 20px;
-  }
+  
 }
 @media screen and (max-width: 500px) {
   h1 {
@@ -46,3 +25,37 @@ h1 {
     }
   }
 }
+.links {
+  width: 100vw;
+  font-size: 5rem;
+  width: 100vw;
+    // position: absolute;
+    color: #E79F0D;
+    font-family: mont-bold;
+    font-weight: normal;
+    // span {
+    //   height: 1rem;
+    // }
+
+    a {
+      color: #E79F0D;
+      text-decoration: none;
+      height: 10vh;
+        line-height: 10vh;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    span{
+      height:10vh;
+      line-height: 10vh;
+      font-size: 6rem;
+    }
+    // margin-top: clamp(4.4rem, -0.174rem + 14.638vw, 13rem);
+    // margin-right: clamp(-8rem, -20.234rem + 39.149vw, 15rem);
+    height: 40vh;
+    @include flexCenter(row);
+    gap: 20px;
+    position: absolute;
+    bottom: 0%;
+  }

@@ -2,11 +2,7 @@
   font-family: mont-regular;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(
-    64.68% 64.68% at 50% 50%,
-    #007805 0%,
-    #002f02 100%
-  );
+  background-image: url(../../poker.png);
   @include flexCenter(column);
   color: white;
   .goHome {

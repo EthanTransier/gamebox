@@ -65,27 +65,27 @@ body {
 
 @font-face {
   font-family: mont-regular;
-  src: url(../../bold.otf);
+  src: url(../../bold.ttf);
 }
 @font-face {
   font-family: mont-bold;
-  src: url(../../bold.otf);
+  src: url(../../bold.ttf);
 }
 @font-face {
   font-family: mont-light;
-  src: url(../../bold.otf);
+  src: url(../../bold.ttf);
 }
 @font-face {
   font-family: mont-thin;
-  src: url(../../bold.otf);
+  src: url(../../bold.ttf);
 }
 @font-face {
   font-family: mont-extrathin;
-  src: url(../../bold.otf);
+  src: url(../../bold.ttf);
 }
 @font-face {
   font-family: jq-regular;
-  src: url(../../bold.otf);
+  src: url(../../bold.ttf);
 }
 .goHome {
   position: absolute;
@@ -101,7 +101,7 @@ body {
   font-family: mont-regular;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(64.68% 64.68% at 50% 50%, #007805 0%, #002f02 100%);
+  background-image: url(../../poker.png);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,38 +176,19 @@ body .logIn div input:focus {
   border-bottom: 2px solid white;
 }
 
+.wel {
+  display: block;
+}
+
 h1 {
   font-family: jq-regular;
   color: black;
-  font-size: clamp(4.3rem, -0.2rem + 14.4vw, 16rem);
+  font-size: 10rem;
   font-weight: normal;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
 }
 h1 .whiteText {
   color: white;
-}
-h1 .links {
-  color: #E79F0D;
-  font-family: mont-bold;
-  font-weight: normal;
-  font-size: clamp(1rem, 0.734rem + 0.851vw, 1.5rem);
-  margin-left: 4rem;
-  width: fit-content;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 20px;
-}
-h1 .links a {
-  color: #E79F0D;
-  text-decoration: none;
-}
-h1 .links a:hover {
-  text-decoration: underline;
+  font-size: 4rem;
 }
 
 @media screen and (max-width: 500px) {
@@ -221,6 +202,37 @@ h1 .links a:hover {
     font-size: clamp(0.8rem, 0.05rem + 4vw, 1.3rem);
   }
 }
+.links {
+  width: 100vw;
+  font-size: 5rem;
+  width: 100vw;
+  color: #E79F0D;
+  font-family: mont-bold;
+  font-weight: normal;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+  position: absolute;
+  bottom: 0%;
+}
+.links a {
+  color: #E79F0D;
+  text-decoration: none;
+  height: 10vh;
+  line-height: 10vh;
+}
+.links a:hover {
+  text-decoration: underline;
+}
+.links span {
+  height: 10vh;
+  line-height: 10vh;
+  font-size: 6rem;
+}
+
 .flip-box {
   background-color: transparent;
   width: 150px;
@@ -268,6 +280,10 @@ h1 .links a:hover {
   transform: rotateY(180deg);
 }
 
+.dash {
+  display: flex;
+}
+
 .dashboard {
   width: 100vw;
   height: 100vh;
@@ -294,7 +310,7 @@ h1 .links a:hover {
 .dashboard section div h4 {
   font-weight: normal;
   padding-top: 2rem;
-  font-size: 4rem;
+  font-size: 3.5rem;
   text-align: center;
 }
 .dashboard section div ul {
@@ -304,7 +320,7 @@ h1 .links a:hover {
   height: 80vh;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 30px;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-family: mont-light;
   list-style-type: none;
 }
