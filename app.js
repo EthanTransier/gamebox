@@ -35,7 +35,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 // uses the public foler
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('./public'));
 // fixes MIME type issues
 
 // Express session
