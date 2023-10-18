@@ -5,15 +5,6 @@
   background-image: url(../../poker.png);
   @include flexCenter(column);
   color: white;
-  .goHome {
-    position: absolute;
-    top: 2px;
-    left: 5px;
-    color: white;
-    font-family: mont-light;
-    text-decoration: none;
-    font-size: 1rem;
-  }
   .result2 {
     @include flexCenter(row);
     .card {
@@ -22,6 +13,7 @@
     }
   }
   .result {
+    
     .card {
       width: 150px;
       height: auto;
@@ -29,8 +21,25 @@
   }
   .buttons {
     button {
-      width: 100px;
-      aspect-ratio: 1/1;
+      color: white;
+        font-family: mont-light;
+        text-decoration: none;
+        padding: .5rem 1rem .5rem 1rem;
+        font-size: 2rem;
+        background-color: red;
+        border-radius: 6px;
+        border: 0cap;
+        width: 10rem;
+        &:hover{
+          cursor: pointer;
+        }
+        &:nth-child(1){
+        background-color: blue;
+        }
+                &:nth-child(2) {
+                  background-color: #E79F0D;
+                }
     }
+    
   }
 }
