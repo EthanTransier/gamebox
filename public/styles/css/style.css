@@ -51,6 +51,7 @@ menu,
 nav,
 section,
 summary {
+  font-kerning: none;
   margin: 0px;
   padding: 0px;
   border: 0px;
@@ -64,27 +65,27 @@ body {
 
 @font-face {
   font-family: mont-regular;
-  src: url(../../novel.otf);
+  src: url(../../bold.otf);
 }
 @font-face {
   font-family: mont-bold;
-  src: url(../../novel.otf);
+  src: url(../../bold.otf);
 }
 @font-face {
   font-family: mont-light;
-  src: url(../..//montserrat/static/Montserrat-Light.ttf);
+  src: url(../../bold.otf);
 }
 @font-face {
   font-family: mont-thin;
-  src: url(../..//montserrat/static/Montserrat-Thin.ttf);
+  src: url(../../bold.otf);
 }
 @font-face {
   font-family: mont-extrathin;
-  src: url(../..//montserrat/static/Montserrat-Thin.ttf);
+  src: url(../../bold.otf);
 }
 @font-face {
   font-family: jq-regular;
-  src: url(../../jqkas/JqkasWild-w1YD6.ttf);
+  src: url(../../bold.otf);
 }
 .goHome {
   position: absolute;
@@ -273,27 +274,67 @@ h1 .links a:hover {
   display: flex;
   flex-direction: column;
   color: white;
-  font-size: 3rem;
-  font-family: mont-bold;
+  font-size: 5rem;
+  font-family: mont-regular;
   padding: 4rem;
+  text-align: center;
+  font-weight: normal;
 }
 .dashboard h3 {
   margin-top: 1rem;
+  font-weight: normal;
 }
 .dashboard section div {
-  width: 25vw;
-  aspect-ratio: 1/1;
-  background-color: white;
-  color: black;
+  width: 100vw;
+  height: 100vh;
+  color: white;
   border-radius: 30px;
   padding: 1rem;
 }
 .dashboard section div h4 {
-  font-size: 2.25rem;
+  font-weight: normal;
+  padding-top: 3rem;
+  font-size: 4rem;
   text-align: center;
 }
 .dashboard section div ul {
-  font-size: 1.5rem;
+  overflow: auto;
+  text-align: center;
+  width: 45vw;
+  height: 80vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  font-size: 3rem;
   font-family: mont-light;
   list-style-type: none;
+}
+.dashboard section div ul li {
+  padding-top: 2rem;
+}
+.dashboard section div ul li a {
+  display: block;
+  padding: 5%;
+  text-decoration: none;
+  width: 20rem;
+  color: white;
+  border-radius: 4px;
+}
+
+.containero {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.logout {
+  width: 100%;
+}
+.logout a {
+  background-color: red;
+}
+
+.play {
+  width: 100%;
+}
+.play a {
+  background-color: blue;
 }/*# sourceMappingURL=style.css.map */

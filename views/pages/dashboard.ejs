@@ -8,32 +8,48 @@
     <link rel="stylesheet" href="../styles/css/style.css">
 </head>
 
-<body>
+<body onload="leaderboard()">
     <!-- <a href="/" class="goHome"><- Back to Home</a> -->
     <main class="dashboard">
         <h3>Welcome back <%= user.first_name %></h3>
         <section>
-            <div>
-                <h4>Account Details</h4>
-                <ul>
-                    <li>Games Played: <%= user.games_played %>
-                    </li>
-                    <li>Games Won: <%= user.games_won %>
-                    </li>
-                    <% var winPercentage=(Number(user.games_won) / Number(user.games_played) * 100).toFixed(2) %>
-                    <% if(isNaN(winPercentage)){
-                        winPercentage=0 
-                    } %>
-                        <% console.log(winPercentage) %>
-                    <li>Win Percentage: <%= winPercentage %>%</li>
-                    <li>Current Win Streak: <%= user.win_streak %></li>
-                    <li>Highest Win Streak: <%= user.highest_win_streak%></li>
-                </ul>
-                <a href="/users/logout">Logout</a>
+            <div class="containero">
+
+                    <ul>
+                    <h4>Account Details</h4>
+
+                        <li>Games Played: <%= user.games_played %>
+                        </li>
+                        <li>Games Won: <%= user.games_won %>
+                        </li>
+                        <% var winPercentage=(Number(user.games_won) / Number(user.games_played) * 100).toFixed(2) %>
+                            <% if(isNaN(winPercentage)){ winPercentage=0 } %>
+                                <% console.log(winPercentage) %>
+                                    <li>Win Percentage: <%= winPercentage %>%</li>
+                                    <li>Current Win Streak: <%= user.win_streak %>
+                                    </li>
+                                    <li>Highest Win Streak: <%= user.highest_win_streak%>
+                                    </li>
+                                    <li class="logout"><a href="/users/logout">Logout</a>
+                                    </li>
+                                    <li class="play"><a href="/game">Play Game</a>
+                                    </li>
+                        
+                        
+
+                    </ul>
+
+                    <ul class="leaderboard">
+                        <h4>leaderboard</h4>
+                        
+                    </ul>
             </div>
+
         </section>
-        <a href="/game">Play Game</a>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"></script>
     <script src="./dashboard-script.js"></script>
 </body>
 
