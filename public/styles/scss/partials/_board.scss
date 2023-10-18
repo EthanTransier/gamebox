@@ -43,3 +43,38 @@
     
   }
 }
+.ethano{
+  position: absolute;
+  left: 50%;
+  height: 20vh;
+  transform: translateX(-50%);
+  top: 0;
+}
+.resulto{
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+    margin-top: 20vh;
+    margin-bottom: 2rem;
+  div{
+    border-radius: 1rem;
+    background-color: rgba(0, 0,0,.5);
+    width: 70vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .flip-box{
+    width: 150px;
+  background: transparent;
+  div{
+  background: transparent;
+    width: 150px;
+  }
+  }
+}
+.winner{
+  margin: 0%;
+  font-size: 2rem;
+}

@@ -247,28 +247,28 @@ async function getResults() {
 
   // Checks the scores to see who wins the game
   if ((dealerFinal > 21 && userFinal > 21) || userFinal == dealerFinal) {
-    gameResult = 'tie';
+    gameResult = 'Winner: Tie';
   } else if (dealerFinal > 21 && userFinal <= 21) {
-    gameResult = 'user wins';
+    gameResult = 'Winner: User';
     await fetch(`/users/winGame/${usersEmail}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
     });
   } else if (userFinal > 21 && dealerFinal <= 21) {
-    gameResult = 'dealer wins';
+    gameResult = 'Winner: Dealer';
     await fetch(`/users/endWinStreak/${usersEmail}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
     });
   } else if (userFinal <= 21 && dealerFinal <= 21) {
     if (userFinal > dealerFinal) {
-      gameResult = 'user wins';
+      gameResult = 'Winner: User';
       await fetch(`/users/winGame/${usersEmail}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });
     } else {
-      gameResult = 'dealer wins';
+      gameResult = 'Winner: Dealer';
       await fetch(`/users/endWinStreak/${usersEmail}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -278,6 +278,9 @@ async function getResults() {
   // prints the winner result to the page
   console.log(dealerFinal + ' ' + userFinal);
   winner.textContent = gameResult;
+  setTimeout(function () {
+    winner.textContent = 'Winner: ';
+  }, 2000);
 }
 
 // stand()
