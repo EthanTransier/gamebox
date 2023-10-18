@@ -411,7 +411,6 @@ h1 .whiteText {
   text-align: center;
 }
 .dashboard section div ul {
-  overflow: auto;
   text-align: center;
   width: 45vw;
   height: 80vh;
@@ -422,7 +421,7 @@ h1 .whiteText {
   list-style-type: none;
 }
 .dashboard section div ul li {
-  padding-top: 2rem;
+  padding-top: 1.3rem;
 }
 .dashboard section div ul li a {
   height: 5rem;
@@ -452,5 +451,5 @@ h1 .whiteText {
   width: 100%;
 }
 .play a {
-  background-color: #E79F0D;
+  background-color: #e79f0d;
 }/*# sourceMappingURL=style.css.map */
