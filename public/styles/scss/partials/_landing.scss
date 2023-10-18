@@ -1,16 +1,40 @@
 .wel{
   display: block;
 }
+.ethan{
+  height: 20rem;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.cardo1 {
+  height: 20rem;
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  transform: translateX(-50%) translateY(-50%) rotate(-10deg);
+}
+
+.cardo2 {
+  height: 20rem;
+  position: absolute;
+  left: 60%;
+  top: 20%;
+  transform: translateX(-50%) translateY(-50%) rotate(10deg);
+}
 h1 {
+  display: flex;
   font-family: jq-regular;
   color: black;
   font-size: 10rem;
   font-weight: normal;
-  
-  
+  position: absolute;
+    left: 50%;
+    top: 50%;
+  transform: translateX(-50%) translateY(-50%);
   .whiteText {
     color: white;
-    font-size: 4rem;
   }
   
 }

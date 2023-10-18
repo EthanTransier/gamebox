@@ -1,9 +1,12 @@
 .goHome {
   position: absolute;
-  top: 2px;
-  left: 5px;
+  top: 1rem;
+  left: 1rem;
   color: white;
   font-family: mont-light;
   text-decoration: none;
-  font-size: 1rem;
+  padding: .5rem 1rem .5rem 1rem;
+  font-size: 2rem;
+  background-color: red;
+  border-radius: 2px;
 }
