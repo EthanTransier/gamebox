@@ -1,10 +1,6 @@
 body {
   overflow: hidden;
-  background: radial-gradient(
-    64.68% 64.68% at 50% 50%,
-    #007805 0%,
-    #002f02 100%
-  );
+  background-image: url(../../poker.png);
   @include flexCenter(row);
   height: 100vh;
   width: 100vw;

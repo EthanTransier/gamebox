@@ -5,7 +5,9 @@ async function leaderboard() {
   let sorted = data.sort(compareScore);
   sorted.forEach((element) => {
     console.log(element);
-    leaderboard2.innerHTML += `<li>${element.first_name}: ${element.highest_win_streak}</li>`;
+    leaderboard2.innerHTML += `<li>${sorted.indexOf(element) + 1}. ${
+      element.first_name
+    }: ${element.highest_win_streak}</li>`;
   });
 }
 function compareScore(a, b) {
